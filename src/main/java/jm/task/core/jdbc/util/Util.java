@@ -25,7 +25,6 @@ public class Util {
 
     }
     public static Session getCurrentSession() {
-        // Hibernate 5.4 SessionFactory example without XML
         Map<String, String> settings = new HashMap<>();
         settings.put("connection.driver_class", "com.mysql.jdbc.Driver");
         settings.put("dialect", "org.hibernate.dialect.MySQL8Dialect");
@@ -45,7 +44,6 @@ public class Util {
         metadataSources.addAnnotatedClass(User.class);
         Metadata metadata = metadataSources.buildMetadata();
 
-        // here we build the SessionFactory (Hibernate 5.4)
         SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
         Session session = sessionFactory.getCurrentSession();
         return session;
